@@ -14,7 +14,7 @@ class Connection
 
     public function __construct()
     {
-        $dotEnv = Dotenv::createImmutable(__DIR__ . '/../../htdocs/'); //change to path to .env
+        $dotEnv = Dotenv::createImmutable(__DIR__ . '/../../../'); //change to path to .env
         $dotEnv->load();
         $this->host = getenv('DB_HOST');
         $this->user = getenv('DB_USER');
