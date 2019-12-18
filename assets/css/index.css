@@ -1,0 +1,114 @@
+body, html {
+    height: 100%;
+    margin: auto;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+html {
+    outline: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+}
+
+.limiter {
+    width: 100%;
+}
+
+.header {
+    margin-bottom: 50px;
+    margin-top: 0px;
+    color: white;
+    font-size: 85px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    text-shadow: 2px 3px 3px #000000;
+    text-align: center;
+}
+
+table {
+    width: 900px;
+    border-spacing: 0;
+    empty-cells: hide;
+    position: center;
+    padding: -60px 40px 0px 40px;
+    border: 3px solid #F4EEE8;
+    border-top: 0px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px -2px rgb(98, 98, 98)
+}
+
+th {
+    padding: 15px 40px;
+    color: #000000;
+    border-top: 3px solid #e0e0e0;
+    border-bottom: 1px solid #F4EEE8;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+th:nth-child(even) {
+    background: #e0e0e0;
+    border-color: white;
+}
+
+th:nth-child(odd) {
+    border-top: 3px solid #ffffff;
+    background: #ffffff;
+}
+
+td {
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid #F4EEE8;
+    transition: all 0.5s linear;
+}
+
+td:first-child {
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+}
+
+td:nth-child(even) {
+    background: #e0e0e0;
+    border-color: white;
+}
+
+td:nth-child(odd) {
+    background: #ffffff;
+}
+
+.round-top {
+    border-top-left-radius: 5px;
+}
+
+.round-bottom {
+    border-bottom-left-radius: 5px;
+}
+
+a {
+    font-size: 46px;
+    color: #ffffff;
+    font-family: Poppins-Regular, sans-serif;
+    text-shadow: 0px 0px 4px #fbfbfb;
+    text-decoration-line: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-shadow: 0px 1px 1px #fbfbfb;
+}
+
+a:active {
+    color: #9d9eff;
+    text-shadow: none;
+}

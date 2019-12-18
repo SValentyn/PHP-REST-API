@@ -1,0 +1,13 @@
+Options +FollowSymLinks
+IndexIgnore */* #Options -Indexes
+
+# Перенаправление с ДОМЕН на ДОМЕН/api
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /api/$1 [R=301]
+
+#Если URI начинается с api/ то перенаправлять все запросы на main.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/(.*)$ /main.php

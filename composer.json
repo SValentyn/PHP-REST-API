@@ -1,0 +1,13 @@
+{
+  "require": {
+    "vlucas/phpdotenv": "^4.1",
+    "ext-mysqli": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\": "src/app",
+      "route\\": "src/route"
+    }
+  }
+}
