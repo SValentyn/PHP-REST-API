@@ -15,7 +15,7 @@ class DBUtils
         $this->properties = $properties;
     }
 
-    // Получение пользователя по id
+    // Getting user by id
     public static function getUserById(mysqli $connection, $userId)
     {
         $sql = "SELECT users.`id`, `first_name`, `last_name`, `email`, `password`, `image_path`, `image_name`, `title` 
@@ -24,8 +24,8 @@ class DBUtils
         return self::getUser($connection, $sql);
     }
 
-    // Получение пользователя по запросу sql
-    public static function getUser(mysqli $connection, string $sql)
+    // Getting a user by SQL query
+    public static function getUser(mysqli $connection, $sql)
     {
         $result = $connection->query($sql);
         $user = [];
@@ -45,7 +45,7 @@ class DBUtils
         return $user;
     }
 
-    // Получение всех пользователей
+    // Getting all users
     public static function getAllUsers(mysqli $connection)
     {
         $sql = "SELECT users.`id`, `first_name`, `last_name`, `password`, `email`, `image_path`, `image_name`, `title` 
@@ -70,9 +70,8 @@ class DBUtils
         return $users;
     }
 
-    // Обновление пользователя по id
-    public static function updateById(mysqli $connection, $userId, string $firstName,
-                                      string $lastName, string $email, string $password)
+    // User update by id
+    public static function updateById(mysqli $connection, $userId, $firstName, $lastName, $email, $password)
     {
         $sql = "UPDATE users SET first_name='$firstName', last_name='$lastName', email='$email', password='$password'
                 WHERE id='$userId';";
@@ -81,14 +80,14 @@ class DBUtils
         return self::getUserById($connection, $userId);
     }
 
-    // Удаление пользователя по id
+    // Delete user by id
     public static function deleteById(mysqli $connection, $userId)
     {
         $sql = "DELETE FROM users WHERE id='$userId'";
         return $connection->query($sql);
     }
 
-    // Проверка возможности входа в систему
+    // Checking login capabilities
     public static function login(mysqli $connection, $email, $password)
     {
         $sql = "SELECT users.`id`, `first_name`, `last_name`, `email`, `password`, `image_path`, `image_name`, `title` 
@@ -97,7 +96,7 @@ class DBUtils
         return self::getUser($connection, $sql);
     }
 
-    // Регистрация нового пользователя и отправка почты
+    // Register a new user and send mail
     public function saveNewUser()
     {
         $firstName = $this->properties['firstName'];
@@ -106,7 +105,7 @@ class DBUtils
         $password = $this->properties['password'];
         $roleId = $this->properties['role'] == 'admin' ? 1 : 2;
 
-        // Проверка на уникальность email
+        // Check your email for uniqueness
         $sql = "SELECT email FROM users";
 
         $result = $this->connection->query($sql);
@@ -126,6 +125,5 @@ class DBUtils
 
         return $result;
     }
-
 
 }
