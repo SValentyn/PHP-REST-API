@@ -25,8 +25,8 @@
             <h3 class="header">Start Page</h3>
             <div style="text-align: center;">
 
-                <!-- Вызов модального окна входа -->
-                <a href="#win1" class="button" style="padding-right: 15px; ">Login</a>
+                <!-- Call modal login window -->
+                <a href="#win1" class="link" style="padding-right: 15px; ">Login</a>
                 <a href="#x" class="overlay" id="win1"></a>
 
                 <div class="popup"
@@ -71,8 +71,8 @@
                     </div>
                 </div>
 
-                <!-- Вызов модального окна регистрации -->
-                <a style="margin-right: 15px; padding-left: 15px;" href="#win2" class="button">Sign up</a>
+                <!-- Call modal registration window -->
+                <a style="margin-right: 15px; padding-left: 15px;" href="#win2" class="link">Sign up</a>
                 <a href="#x" class="overlay" id="win2"></a>
 
                 <div class="popup"
@@ -129,9 +129,9 @@
                                             style="margin-top: 20px;">
                                         Create Account
                                     </button>
-                                    <p style="font-size: 16px; padding-top: 5px;">Do you have an account?
-                                        <a href="#win1"
-                                           style="font-size: 16px; font-weight: 700; color: #292929">Login</a>
+                                    <p style="font-size: 16px; padding-top: 5px;">
+                                        Do you have an account?
+                                        <a href="#win1" style="font-size: 16px; font-weight: 700; color: #292929">Login</a>
                                     </p>
                                 </form>
                                 <a href="#x" class="close" style=" left: 370px;" title="Close"></a>
