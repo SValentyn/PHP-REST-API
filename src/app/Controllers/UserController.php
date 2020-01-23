@@ -7,10 +7,9 @@ class UserController extends BasicController
     public $apiName = 'users';
 
     /**
-     * Метод GET
-     * Вывод списка всех записей
-     * http://ДОМЕН/users
-     * @return string
+     * Method GET
+     * List all record
+     * http://domen/users
      */
     public function index()
     {
@@ -23,16 +22,16 @@ class UserController extends BasicController
     }
 
     /**
-     * Метод GET
-     * Просмотр отдельной записи (по id)
-     * http://ДОМЕН/users/1
-     * @return string
+     * Method GET
+     * View a single record by id
+     * http://domen/users/1
      */
     public function view()
     {
         $connection = (new Connection())->getConnection();
         $parse_url = parse_url($this->requestUri[0]);
-        $userId = $parse_url['path'] ?? null;
+        $userId = isset($parse_url['path']) ? $parse_url['path'] : null;
+        // for PHP 7.0: $userId = $parse_url['path'] ?? null;
         $user = DBUtils::getUserById($connection, $userId);
 
         if ($user) {
@@ -43,10 +42,9 @@ class UserController extends BasicController
     }
 
     /**
-     * Метод POST
-     * Создание новой записи
-     * http://ДОМЕН/users + параметры запроса name, email
-     * @return string
+     * Method POST
+     * Create a new record
+     * http://domen/users + request parameters
      */
     public function create()
     {
@@ -74,16 +72,15 @@ class UserController extends BasicController
     }
 
     /**
-     * Метод PUT
-     * Обновление отдельной записи по id
-     * http://ДОМЕН/users/1 + параметры запроса
-     * @return string
+     * Method PUT
+     * Updating a single record by id
+     * http://domen/users/1 + request parameters
      */
     public function update()
     {
         $parse_url = parse_url($this->requestUri[0]);
-        $userId = $parse_url['path'] ?? null;
-
+        $userId = isset($parse_url['path']) ? $parse_url['path'] : null;
+        // for PHP 7.0: $userId = $parse_url['path'] ?? null;
         $connection = (new Connection())->getConnection();
 
         if (!$userId || !DBUtils::getUserById($connection, $userId)) {
@@ -103,16 +100,15 @@ class UserController extends BasicController
     }
 
     /**
-     * Метод DELETE
-     * Удаление отдельной записи по id
-     * http://ДОМЕН/users/1
-     * @return string
+     * Method DELETE
+     * Delete a single record by id
+     * http://domen/users/1
      */
     public function delete()
     {
         $parse_url = parse_url($this->requestUri[0]);
-        $userId = $parse_url['path'] ?? null;
-
+        $userId = isset($parse_url['path']) ? $parse_url['path'] : null;
+        // for PHP 7.0: $userId = $parse_url['path'] ?? null;
         $connection = (new Connection())->getConnection();
 
         if (!$userId || !DBUtils::getUserById($connection, $userId)) {
@@ -126,11 +122,10 @@ class UserController extends BasicController
         }
     }
 
-    //    /**
-//     * Метод GET
-//     * Загрузка фото отдельной записи по id
-//     * http://ДОМЕН/users/1
-//     * @return string
+//    /**
+//     * Method GET
+//     * Uploading a photo of an individual record by id
+//     * http://domen/users/1
 //     */
 //    public function upload()
 //    {
