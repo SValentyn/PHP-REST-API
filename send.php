@@ -16,14 +16,14 @@ try {
 
     // Настройки вашей почты
     $mail->Host = 'smtp.gmail.com'; // SMTP сервера GMAIL
-    $mail->Username = 'planet.sv01@gmail.com';
-    $mail->Password = 'xx159753';
+    $mail->Username = 'your email';
+    $mail->Password = 'your password';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
-    $mail->setFrom('planet.sv01@gmail.com', 'Helper'); // Адрес самой почты и имя отправителя
+    $mail->setFrom('your email', 'Helper'); // Адрес самой почты и имя отправителя
 
     // Получатель письма
-    $mail->addAddress('planet.sv01@gmail.com');
+    $mail->addAddress('your email');
     $mail->isHTML(true);
     $mail->Subject = 'Результат регистрации на сайте';
     $mail->Body = "<b><p>Регистрация прошла успешно!</p></b>";
