@@ -136,14 +136,18 @@ p {
     font-weight: lighter;
 }
 
-a {
+a:active {
+    text-shadow: 0 1px 2px #000000;
+}
+
+.link {
     font-size: 46px;
     color: #fff0f4;
     font-family: Comic Sans MS, Comic Sans, cursive;
     cursor: pointer;
 }
 
-a:active {
+link:active {
     text-shadow: 0 1px 2px #000000;
 }
 
