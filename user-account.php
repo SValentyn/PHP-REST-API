@@ -30,7 +30,7 @@ $_SESSION["role"] = "user";
             <?php
             echo "<div style=\"text-align: right; height: 60px; margin-top: 30px;\">
                     <span>
-                        <a style=\"padding-left: 15px\" onclick=\"window.location.replace('index.php'); return false;\">Sign out</a>
+                        <a class='link' style=\"padding-left: 15px\" onclick=\"window.location.replace('index.php'); return false;\">Sign out</a>
                     </span>
               </div>";
             ?>
