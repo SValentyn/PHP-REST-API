@@ -9,7 +9,7 @@ class UserController extends BasicController
     /**
      * Method GET
      * List all record
-     * http://domen/users
+     * http://domain/users
      */
     public function index()
     {
@@ -24,7 +24,7 @@ class UserController extends BasicController
     /**
      * Method GET
      * View a single record by id
-     * http://domen/users/1
+     * http://domain/users/1
      */
     public function view()
     {
@@ -44,7 +44,7 @@ class UserController extends BasicController
     /**
      * Method POST
      * Create a new record
-     * http://domen/users + request parameters
+     * http://domain/users + request parameters
      */
     public function create()
     {
@@ -74,7 +74,7 @@ class UserController extends BasicController
     /**
      * Method PUT
      * Updating a single record by id
-     * http://domen/users/1 + request parameters
+     * http://domain/users/1 + request parameters
      */
     public function update()
     {
@@ -102,7 +102,7 @@ class UserController extends BasicController
     /**
      * Method DELETE
      * Delete a single record by id
-     * http://domen/users/1
+     * http://domain/users/1
      */
     public function delete()
     {
@@ -125,7 +125,7 @@ class UserController extends BasicController
 //    /**
 //     * Method GET
 //     * Uploading a photo of an individual record by id
-//     * http://domen/users/1
+//     * http://domain/users/1
 //     */
 //    public function upload()
 //    {
