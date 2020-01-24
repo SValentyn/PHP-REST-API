@@ -130,7 +130,8 @@ class UserController extends BasicController
 //    public function upload()
 //    {
 //        $parse_url = parse_url($this->requestUri[0]);
-//        $userId = $parse_url['path'] ?? null;
+//        $userId = isset($parse_url['path']) ? $parse_url['path'] : null;
+//        // for PHP 7.0: $userId = $parse_url['path'] ?? null;
 //
 //        $connection = (new Connection())->getConnection();
 //

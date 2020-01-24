@@ -6,7 +6,7 @@ class AuthController extends BasicController
 {
     public $apiName = 'login';
 
-    // Вход пользователя в систему
+    // User login
     public function index()
     {
         $email = $this->requestParams['email'];

@@ -35,7 +35,7 @@ $_SESSION["role"] = "admin";
                   </div>";
             ?>
 
-            <!-- Вызов построителя таблицы пользователей -->
+            <!-- Calling the user table builder -->
             <table style="width: 950px; margin-top: 60px; margin-bottom: 15px;">
                 <thead>
                 <tr>

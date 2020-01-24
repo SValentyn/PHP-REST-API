@@ -20,11 +20,11 @@ class Router
         header("Access-Control-Allow-Methods: *");
         header("Content-Type: application/json");
 
-        // Массив GET параметров разделенных слешем
+        // An array of GET parameters separated by a slash
         $this->requestUri = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
         $this->requestParams = $_REQUEST;
 
-        // Определение метода запроса
+        // Request method definition
         $this->method = $_SERVER['REQUEST_METHOD'];
         if ($this->method == 'POST' && array_key_exists('HTTP_X_HTTP_METHOD', $_SERVER)) {
             if ($_SERVER['HTTP_X_HTTP_METHOD'] == 'DELETE') {
@@ -58,7 +58,7 @@ class Router
                 $controller = new UserController($this->method, $this->requestParams);
         }
 
-        // Если метод(действие) определен в дочернем классе API
+        // If the method is defined in an API child class
         if (method_exists($controller, $controller->getAction($this->requestUri))) {
             return $controller->{$controller->getAction($this->requestUri)}();
         } else {

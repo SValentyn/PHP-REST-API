@@ -14,19 +14,19 @@ try {
     $mail->CharSet = "UTF-8";
     $mail->SMTPAuth = true;
 
-    // Настройки вашей почты
-    $mail->Host = 'smtp.gmail.com'; // SMTP сервера GMAIL
+    // Your mail settings
+    $mail->Host = 'smtp.gmail.com';
     $mail->Username = 'your email';
     $mail->Password = 'your password';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
-    $mail->setFrom('your email', 'Helper'); // Адрес самой почты и имя отправителя
+    $mail->setFrom('your email', 'Helper'); // Recipient mail address and sender name
 
-    // Получатель письма
+    // Message recipient
     $mail->addAddress('your email');
     $mail->isHTML(true);
-    $mail->Subject = 'Результат регистрации на сайте';
-    $mail->Body = "<b><p>Регистрация прошла успешно!</p></b>";
+    $mail->Subject = 'The result of registration on the site';
+    $mail->Body = "<b><p>Registration completed successfully!</p></b>";
 
     if ($mail->send()) {
         echo $msg;

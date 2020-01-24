@@ -28,7 +28,6 @@ $_SESSION["role"] = "user";
     <div class="container-login100">
         <div style=" height: 800px;  text-align: center;">
             <?php
-
             echo "<div style=\"text-align: right; height: 60px; margin-top: 30px;\">
                     <span>
                         <a style=\"padding-left: 15px\" onclick=\"window.location.replace('index.php'); return false;\">Sign out</a>
@@ -36,7 +35,7 @@ $_SESSION["role"] = "user";
               </div>";
             ?>
 
-            <!-- Вызов построителя таблицы пользователей -->
+            <!-- Calling the user table builder -->
             <table style="width: 950px; margin-top: 60px; margin-bottom: 15px;">
                 <thead>
                 <tr>
