@@ -118,6 +118,13 @@ $_SESSION["role"] = "admin";
                     </div>
                 </div>
             </div>
+            <div id="footer">
+                <div>
+                    <a href="https://github.com/SValentyn/PHP-REST-API">
+                        <img id="github-ico" src="assets/images/icons/GitHub-Mark-32px.ico" title="View code on GitHub" alt="View code on GitHub"/>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <script src="assets/js/ajax.js"></script>

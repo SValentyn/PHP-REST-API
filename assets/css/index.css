@@ -68,7 +68,7 @@ th:nth-child(odd) {
 td {
     padding: 10px 20px;
     text-align: center;
-    border-bottom: 1px solid #F4EEE8;
+    border-bottom: 2px solid #F4EEE8;
     transition: all 0.5s linear;
 }
 
@@ -85,6 +85,19 @@ td:nth-child(even) {
 
 td:nth-child(odd) {
     background: #ffffff;
+}
+
+.user-id {
+    font-size: 20px;
+    color: #403d40;
+    text-decoration: none;
+}
+
+.delete-button {
+    font-size: 30px;
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .round-top {
@@ -113,4 +126,26 @@ td:nth-child(odd) {
 
 a:active {
     text-shadow: 0 1px 2px #000000;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #ffffff;
+}
+
+#footer div {
+    padding: 26px;
+    text-align: right;
+}
+
+#github-ico {
+    width: 30px;
+    height: 30px;
+}
+
+#github-ico:hover {
+    opacity: 0.7;
 }
