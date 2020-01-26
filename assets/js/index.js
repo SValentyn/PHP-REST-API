@@ -38,7 +38,7 @@ login_btn.onclick = function () {
     }
 
     if (password === "" || password.length < 4) {
-        document.getElementById("error-label").innerHTML = "Invalid password";
+        document.getElementById("error-label").innerHTML = "Password is too short";
         return false;
     }
 
@@ -97,7 +97,7 @@ signup_btn.onclick = function () {
     }
 
     if (password === "" || password.length < 6) {
-        document.getElementById("error-label_2").innerHTML = "Invalid password";
+        document.getElementById("error-label_2").innerHTML = "Password is too short";
         return false;
     }
 

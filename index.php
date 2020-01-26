@@ -26,7 +26,7 @@
             <div style="text-align: center;">
 
                 <!-- Call modal login window -->
-                <a href="#win1" class="link" style="padding-right: 15px; ">Login</a>
+                <a href="#win1" class="link" style="padding-right: 15px;">Login</a>
                 <a href="#x" class="overlay" id="win1"></a>
 
                 <div class="popup"
@@ -36,11 +36,11 @@
                         <div class="login">
                             <div class="input">
                                 <form action="" id="ajaxForm1" method="POST">
-                                    <h2 class="h2"
-                                        style=" text-align:center; padding-top: 45px; padding-bottom: 70px; color: #232323; text-shadow: 0px 1px 1px #000000; font-family: Poppins-Regular, sans-serif; font-size: 40px; ">
-                                        Member Login</h2>
+                                    <h2 class="h2">
+                                        Member Login
+                                    </h2>
 
-                                    <div class="blockinput" style=" margin-bottom: 25px; ">
+                                    <div class="blockinput" style=" margin-bottom: 16px; ">
                                         <label>
                                             <input type="email" name="email" id="email" placeholder="Email"
                                                    autocomplete="off"
@@ -56,7 +56,7 @@
                                         </label>
                                     </div>
                                     <div class="error-label" id="error-label">&nbsp;</div>
-                                    <button type="button" class="button-signup" style="margin-top: 30px;"
+                                    <button type="button" class="button-signup" style="margin-top: 20px;"
                                             id="login">
                                         Login
                                     </button>
@@ -78,34 +78,35 @@
                 <div class="popup"
                      style=" width: 360px; padding: 0px;
                      margin-right: 0px; border-radius: 10px;">
-                    <div class="wrap-login100" style="width: 342px; height: 480px; padding-left: 40px;">
+                    <div class="wrap-login100" style="width: 342px; height: 510px; padding-left: 40px;">
                         <div class="login">
                             <div class="input">
                                 <form id="ajaxForm2" action="" method="POST">
-                                    <h2 class="h2" style=" text-align:center; padding-bottom: 10px; padding-top: 20px;
-                                        color: #232323; text-shadow: 0px 1px 1px #000000; font-family: Poppins-Regular,
-                                        sans-serif; font-size: 28px; ">Registration form</h2>
+                                    <h2 class="h2"
+                                        style="text-align:center;padding-bottom: 0px;padding-top: 0px;
+                                        margin-top: 40px;margin-bottom: 30px;font-size: 28px;">
+                                        Registration form
+                                    </h2>
                                     <div class="blockinput">
                                         <label>
                                             <input type="text" name="firstName" id="firstName"
-                                                   placeholder="First Name"
-                                                   autocomplete="off">
+                                                   placeholder="First Name*" autocomplete="off">
                                         </label>
                                     </div>
 
                                     <div class="blockinput">
                                         <label>
-                                            <input type="text" name="lastName" id="lastName" placeholder="Last Name"
-                                                   autocomplete="off">
+                                            <input type="text" name="lastName" id="lastName"
+                                                   placeholder="Last Name*" autocomplete="off">
                                         </label>
                                     </div>
 
                                     <div class="blockinput" style="display:flex;">
                                         <label for="optionList" style="padding-left: 14px; box-shadow: none;">
-                                            Select
-                                            Role</label>
-                                        <select class="select" name="optionList" id="optionList" autocomplete="off"
-                                                style="width: 168px;">
+                                            Select Role
+                                        </label>
+                                        <select class="select" name="optionList" id="optionList"
+                                                style="width: 168px;" autocomplete="off">
                                             <option>admin</option>
                                             <option>user</option>
                                         </select>
@@ -113,20 +114,20 @@
 
                                     <div class="blockinput">
                                         <label>
-                                            <input type="email" name="email_2" id="email_2" placeholder="Email"
-                                                   autocomplete="off">
+                                            <input type="email" name="email_2" id="email_2"
+                                                   placeholder="Email*" autocomplete="off">
                                         </label>
                                     </div>
 
                                     <div class="blockinput">
                                         <label>
                                             <input type="password" name="password_2" id="password_2"
-                                                   placeholder="Password" autocomplete="off">
+                                                   placeholder="Password*" autocomplete="off">
                                         </label>
                                     </div>
-                                    <div class="error-label" id="error-label_2"></div>
+                                    <div class="error-label" id="error-label_2" style="">&nbsp;</div>
                                     <button type="button" class="button-signup" id="signup"
-                                            style="margin-top: 20px;">
+                                            style="margin-top: 15px;">
                                         Create Account
                                     </button>
                                     <p style="font-size: 16px; padding-top: 5px;">

@@ -19,7 +19,7 @@
 
 .wrap-login100 {
     width: 360px;
-    height: 450px;
+    height: 400px;
     padding-left: 20px;
     background: #ffffff;
     -webkit-box-shadow: 0px 0px 40px -2px rgb(98, 98, 98);
@@ -121,22 +121,6 @@ input {
     color: #7a777a;
     font-family: Comic Sans MS, Comic Sans, cursive;
     text-shadow: 0 1px 0 #FFF;
-}
-
-h2 {
-    margin: 0;
-    padding-bottom: 25px;
-    font-size: 26px;
-    text-align: center;
-    font-family: Comic Sans MS, Comic Sans, cursive;
-}
-
-.h2 {
-    padding-bottom: 30px;
-    padding-top: 10px;
-    color: #232323;
-    text-shadow: 0px 1px 1px #000000;
-    font-family: Poppins-Regular, sans-serif;
 }
 
 label {
