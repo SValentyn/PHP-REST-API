@@ -58,8 +58,9 @@ $_SESSION["role"] = "user";
                         <div class="input" style="width: 450px;height: 660px;">
                             <center>
                                 <div style="margin-top: 60px; padding-bottom: 20px;">
-                                    <img id="img" src=""/>
+                                    <img id="img" src="" alt="User avatar"/>
                                 </div>
+
                                 <form action="" method="POST">
                                     <p class="h2" style="margin-top: 70px;padding-left: 38px;margin-bottom: 10px">
                                         User data:</p>

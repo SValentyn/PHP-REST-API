@@ -59,7 +59,7 @@ $_SESSION["role"] = "admin";
                         <div class="input" style="width: 450px;height: 660px;">
                             <center>
                                 <div style=" padding-bottom: 20px; ">
-                                    <img id="img" src=""/>
+                                    <img id="img" src="" alt="User avatar"/>
                                 </div>
                                 <div id="upload-choose-container">
                                     <input type="file" id="upload-file" accept="image/jpeg, image/png"/>
@@ -72,7 +72,6 @@ $_SESSION["role"] = "admin";
                                 </div>
                                 <div id="error-message"></div>
                                 <script src="assets/js/upload.js"></script>
-
 
                                 <form action="" method="POST">
                                     <p class="h2" style="margin-top: 24px;padding-left: 38px;margin-bottom: 10px">
