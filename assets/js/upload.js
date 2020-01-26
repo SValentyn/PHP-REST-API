@@ -40,26 +40,19 @@ document.querySelector('#cancel-button').addEventListener('click', function () {
 // Upload via AJAX
 document.querySelector('#upload-button').addEventListener('click', function () {
     let data = new FormData();
+    data.append("id", id);
     data.append("file", document.querySelector('#upload-file').files[0]);
 
     ajax({
+        url: `/api/upload`,
+        data: data,
         method: 'POST',
-        url: 'uploadData.php',
-        data : id,
         success: (response) => {
-            let image = JSON.parse(response);
+            console.log(JSON.parse(response));
 
-            console.log('Server got: ', image);
             document.querySelector('#cancel-button').click();
-
             let img = document.getElementById("img");
-            img.src = image['dataUrl'];
+            img.src = JSON.parse(response);
         }
     });
 });
-
-
-
-
-
-
