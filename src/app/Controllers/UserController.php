@@ -116,37 +116,10 @@ class UserController extends BasicController
         }
 
         if (DBUtils::deleteById($connection, $userId)) {
-            return $this->response('Data deleted.', 200);
+            return $this->response('Data deleted', 200);
         } else {
             return $this->response("Delete error", 500);
         }
     }
-
-//    /**
-//     * Method GET
-//     * Uploading a photo of an individual record by id
-//     * http://domain/users/1
-//     */
-//    public function upload()
-//    {
-//        $parse_url = parse_url($this->requestUri[0]);
-//        $userId = isset($parse_url['path']) ? $parse_url['path'] : null;
-//        // for PHP 7.0: $userId = $parse_url['path'] ?? null;
-//
-//        $connection = (new Connection())->getConnection();
-//
-//        if (!$userId || !DBUtils::getUserById($connection, $userId)) {
-//            return $this->response("User with id=$userId not found", 404);
-//        }
-//
-//        $image_path = $this->requestParams['image_path'];
-//        $image_name = $this->requestParams['image_name'];
-//
-//        if ($user = DBUtils::uploadById($connection, $userId, $image_path, $image_name)) {
-//            return $this->response($user, 200);
-//        } else {
-//            return $this->response("Upload error", 500);
-//        }
-//    }
 
 }
