@@ -4,6 +4,7 @@ namespace route;
 
 use app\Controllers\AuthController;
 use app\Controllers\UserController;
+use app\Controllers\UploaderController;
 
 use RuntimeException;
 
@@ -53,6 +54,9 @@ class Router
                 break;
             case 'login':
                 $controller = new AuthController($this->method, $this->requestParams);
+                break;
+            case 'upload':
+                $controller = new UploaderController($this->method, $this->requestParams);
                 break;
             default:
                 $controller = new UserController($this->method, $this->requestParams);
