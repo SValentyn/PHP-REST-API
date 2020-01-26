@@ -11,7 +11,7 @@ function loadUsers() {
             users.forEach(user => {
                 document.querySelector('.table-body').innerHTML +=
                     `<tr>
-                        <td><a class="user-id" style="text-decoration: none; font-size: 24px;color: #403d40;" href="#win1" onclick="getDataById(${user.id})">${user.id}</a></td>
+                        <td><a class="user-id" title="Get user info" href="#win1" onclick="getDataById(${user.id})">${user.id}</a></td>
                         <td>${user.first_name}</td>
                         <td>${user.last_name}</td>
                         <td>${user.email}</td>

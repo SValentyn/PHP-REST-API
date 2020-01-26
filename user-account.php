@@ -52,17 +52,17 @@ $_SESSION["role"] = "user";
 
             <a href="#x" class="overlay" id="win1"></a>
             <div class="popup"
-                 style=" width: 450px; height: 660px; top: 100px; padding: 0px; margin-right: 0px; border-radius: 10px;">
-                <div class="wrap-account-info">
-                    <div class="login" style="width: 450px;height: 660px; ">
-                        <div class="input" style="width: 450px;height: 660px;">
+                 style=" width: 450px; height: 400px; top: 100px; padding: 0px; margin-right: 0px; border-radius: 10px;">
+                <div class="wrap-account-info" style="height: 500px;">
+                    <div class="login" style="width: 450px;">
+                        <div class="input" style="width: 450px; ">
                             <center>
-                                <div style="margin-top: 60px; padding-bottom: 20px;">
+                                <div style="padding-bottom: 20px;">
                                     <img id="img" src="" alt="User avatar"/>
                                 </div>
 
                                 <form action="" method="POST">
-                                    <p class="h2" style="margin-top: 70px;padding-left: 38px;margin-bottom: 10px">
+                                    <p class="h2" style="margin-top: 30px; padding-left: 38px; margin-bottom: 10px">
                                         User data:</p>
 
                                     <div class="blockinput custom-blockinput">
