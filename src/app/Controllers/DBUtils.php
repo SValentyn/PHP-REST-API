@@ -80,6 +80,14 @@ class DBUtils
         return self::getUserById($connection, $userId);
     }
 
+    public static function uploadById(mysqli $connection, $userId, $target_dir, $fileName)
+    {
+        $sql = "UPDATE users SET image_path='$target_dir', image_name='$fileName' 
+                WHERE id ='$userId'";
+
+        return $connection->query($sql);
+    }
+
     // Delete user by id
     public static function deleteById(mysqli $connection, $userId)
     {
