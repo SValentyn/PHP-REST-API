@@ -52,13 +52,12 @@ $_SESSION["role"] = "admin";
             </table>
 
             <a href="#x" class="overlay" id="win1"></a>
-            <div class="popup"
-                 style=" width: 450px; height: 660px; top: 100px; padding: 0px; margin-right: 0px; border-radius: 10px;">
+            <div class="popup" style=" width: 450px; top: 80px; padding: 0px; margin-right: 0px; border-radius: 10px;">
                 <div class="wrap-account-info">
-                    <div class="login" style="width: 450px;height: 660px; ">
-                        <div class="input" style="width: 450px;height: 660px;">
+                    <div class="login" style="width: 450px;">
+                        <div class="input" style="width: 450px;">
                             <center>
-                                <div style=" padding-bottom: 20px; ">
+                                <div style="padding-bottom: 10px; ">
                                     <img id="img" src="" alt="User avatar"/>
                                 </div>
                                 <div id="upload-choose-container">
@@ -74,8 +73,9 @@ $_SESSION["role"] = "admin";
                                 <script src="assets/js/upload.js"></script>
 
                                 <form action="" method="POST">
-                                    <p class="h2" style="margin-top: 24px;padding-left: 38px;margin-bottom: 10px">
-                                        User data:</p>
+                                    <p class="h2" style="margin-top: 20px; padding-left: 38px; margin-bottom: 10px">
+                                        User data:
+                                    </p>
 
                                     <div class="blockinput custom-blockinput">
                                         <label for="firstName" class="label-input">First name:</label>
