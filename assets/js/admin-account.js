@@ -100,7 +100,7 @@ change_button.onclick = function () {
     }
 
     if (password === "" || password.length < 6) {
-        document.getElementById("error-label").innerHTML = "Invalid password";
+        document.getElementById("error-label").innerHTML = "Password is too short";
         return false;
     }
 
