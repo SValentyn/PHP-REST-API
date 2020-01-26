@@ -30,7 +30,7 @@
                 <a href="#x" class="overlay" id="win1"></a>
 
                 <div class="popup"
-                     style=" width: 360px; padding-left: 0px; padding-bottom: 0px; padding-right: 0px; padding-top: 0px;
+                     style=" width: 360px; top: 180px; padding-left: 0px; padding-bottom: 0px; padding-right: 0px; padding-top: 0px;
                      margin-right: 0px; border-radius: 10px;">
                     <div class="wrap-login100" style=" padding-left: 40px; width: 342px;">
                         <div class="login">
@@ -76,8 +76,7 @@
                 <a href="#x" class="overlay" id="win2"></a>
 
                 <div class="popup"
-                     style=" width: 360px; padding: 0px;
-                     margin-right: 0px; border-radius: 10px;">
+                     style=" width: 360px; top: 120px; padding: 0px; margin-right: 0px; border-radius: 10px;">
                     <div class="wrap-login100" style="width: 342px; height: 510px; padding-left: 40px;">
                         <div class="login">
                             <div class="input">

@@ -73,7 +73,7 @@ $_SESSION["role"] = "admin";
                                 <script src="assets/js/upload.js"></script>
 
                                 <form action="" method="POST">
-                                    <p class="h2" style="margin-top: 20px; padding-left: 38px; margin-bottom: 10px">
+                                    <p class="h2" style="margin-top: 20px; padding-left: 38px; margin-bottom: 10px; text-align: left; font-size: 25px;">
                                         User data:
                                     </p>
 
@@ -93,21 +93,18 @@ $_SESSION["role"] = "admin";
                                         <label for="email" class="label-input">Email:</label>
                                         <input type="email" class="custom-input" name="email" id="email"
                                                autocomplete="off"
-                                               style="margin-left: 50px;"
-                                        ><br>
+                                               style="margin-left: 50px;"   ><br>
                                     </div>
 
                                     <div class="blockinput custom-blockinput">
                                         <label for="password" class="label-input">Password:</label>
                                         <input name="password" class="custom-input" id="password" autocomplete="off"
-                                               style=" margin-left: 20px; "
-
-                                        ><br>
+                                               style=" margin-left: 20px; "><br>
                                     </div>
 
-                                    <div class="error-label" id="error-label" style="margin-left: 35px;"></div>
+                                    <div class="error-label" id="error-label" style="margin-left: 35px;">&nbsp;</div>
                                     <button type="submit" class="button-signup" id="change-btn"
-                                            style="width: 360px; margin-top: 18px;">
+                                            style="width: 360px; margin-top: 14px;">
                                         Change data
                                     </button>
                                 </form>

@@ -58,11 +58,11 @@ $_SESSION["role"] = "user";
                         <div class="input" style="width: 450px; ">
                             <center>
                                 <div style="padding-bottom: 20px;">
-                                    <img id="img" src="" alt="User avatar"/>
+                                    <img id="img" src="" alt="User avatar" style="width: 210px; height: 200px"/>
                                 </div>
 
                                 <form action="" method="POST">
-                                    <p class="h2" style="margin-top: 30px; padding-left: 38px; margin-bottom: 10px">
+                                    <p class="h2" style="margin-top: 20px; padding-left: 38px; margin-bottom: 10px; text-align: left; font-size: 32px;">
                                         User data:</p>
 
                                     <div class="blockinput custom-blockinput">
