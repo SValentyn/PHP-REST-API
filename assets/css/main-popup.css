@@ -58,6 +58,25 @@
     background: #333333;
 }
 
+.wrap-account-info {
+    width: 450px;
+    height: 660px;
+    padding-left: 0px;
+    background: #ffffff;
+    -webkit-box-shadow: 0px 0px 40px -2px rgb(98, 98, 98);
+    -moz-box-shadow: 0px 0px 40px -2px rgb(98, 98, 98);
+    box-shadow: 0px 0px 40px -2px rgb(98, 98, 98);
+    border-radius: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 input {
     width: 293px;
     height: 32px;

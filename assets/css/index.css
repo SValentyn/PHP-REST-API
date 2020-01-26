@@ -24,6 +24,11 @@ html {
     width: 100%;
 }
 
+.container {
+    height: 800px;
+    text-align: center;
+}
+
 .header {
     margin-bottom: 50px;
     margin-top: 0px;
@@ -35,7 +40,8 @@ html {
 }
 
 table {
-    width: 900px;
+    width: 950px;
+    margin-top: 90px;
     border-spacing: 0;
     empty-cells: hide;
     position: center;
@@ -106,6 +112,12 @@ td:nth-child(odd) {
 
 .round-bottom {
     border-bottom-left-radius: 5px;
+}
+
+.block-signout {
+    height: 60px;
+    margin-top: 30px;
+    text-align: right;
 }
 
 .link {

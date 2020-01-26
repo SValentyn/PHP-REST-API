@@ -26,17 +26,17 @@ $_SESSION["role"] = "user";
 <body>
 <div class="limiter">
     <div class="container-login100">
-        <div style=" height: 800px;  text-align: center;">
+        <div class="container">
             <?php
-            echo "<div style=\"text-align: right; height: 60px; margin-top: 30px;\">
-                    <span>
-                        <a class='link' style=\"padding-left: 15px\" onclick=\"window.location.replace('index.php'); return false;\">Sign out</a>
-                    </span>
-              </div>";
+            echo "<div class='block-signout'>
+                        <span>
+                            <a class='link' onclick=\"window.location.replace('index.php'); return false;\">Sign out</a>
+                        </span>
+                  </div>";
             ?>
 
             <!-- Calling the user table builder -->
-            <table style="width: 950px; margin-top: 60px; margin-bottom: 15px;">
+            <table id="table-body">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -53,7 +53,7 @@ $_SESSION["role"] = "user";
             <a href="#x" class="overlay" id="win1"></a>
             <div class="popup"
                  style=" width: 450px; height: 660px; top: 100px; padding: 0px; margin-right: 0px; border-radius: 10px;">
-                <div class="wrap-login100" style="width: 450px; height: 660px; padding-left: 0px;">
+                <div class="wrap-account-info">
                     <div class="login" style="width: 450px;height: 660px; ">
                         <div class="input" style="width: 450px;height: 660px;">
                             <center>
@@ -93,7 +93,8 @@ $_SESSION["role"] = "user";
             <div id="footer">
                 <div>
                     <a href="https://github.com/SValentyn/PHP-REST-API">
-                        <img id="github-ico" src="assets/images/icons/GitHub-Mark-32px.ico" title="View code on GitHub" alt="View code on GitHub"/>
+                        <img id="github-ico" src="assets/images/icons/GitHub-Mark-32px.ico" title="View code on GitHub"
+                             alt="View code on GitHub"/>
                     </a>
                 </div>
             </div>

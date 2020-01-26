@@ -72,7 +72,7 @@
                 </div>
 
                 <!-- Call modal registration window -->
-                <a style="margin-right: 15px; padding-left: 15px;" href="#win2" class="link">Sign up</a>
+                <a style="padding-left: 15px;" href="#win2" class="link">Sign up</a>
                 <a href="#x" class="overlay" id="win2"></a>
 
                 <div class="popup"
@@ -131,7 +131,8 @@
                                     </button>
                                     <p style="font-size: 16px; padding-top: 5px;">
                                         Do you have an account?
-                                        <a href="#win1" style="font-size: 16px; font-weight: 700; color: #292929">Login</a>
+                                        <a href="#win1"
+                                           style="font-size: 16px; font-weight: 700; color: #292929">Login</a>
                                     </p>
                                 </form>
                                 <a href="#x" class="close" style=" left: 370px;" title="Close"></a>
@@ -157,7 +158,8 @@
             <div id="footer">
                 <div>
                     <a href="https://github.com/SValentyn/PHP-REST-API">
-                        <img id="github-ico" src="assets/images/icons/GitHub-Mark-32px.ico" title="View code on GitHub" alt="View code on GitHub"/>
+                        <img id="github-ico" src="assets/images/icons/GitHub-Mark-32px.ico" title="View code on GitHub"
+                             alt="View code on GitHub"/>
                     </a>
                 </div>
             </div>
