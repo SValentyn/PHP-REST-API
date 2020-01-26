@@ -6,14 +6,9 @@ class AuthController extends BasicController
 {
     public $apiName = 'login';
 
-    // User login
-    public function index()
+    protected function index()
     {
-        $email = $this->requestParams['email'];
-        $password = $this->requestParams['password'];
-        $connection = (new Connection())->getConnection();
-        $user = DBUtils::login($connection, $email, $password);
-        return $this->response($user, 200);
+        $this->response("Action unsupported", 404);
     }
 
     protected function view()
@@ -21,9 +16,14 @@ class AuthController extends BasicController
         $this->response("Action unsupported", 404);
     }
 
-    protected function create()
+    // User login
+    public function create()
     {
-        $this->response("Action unsupported", 404);
+        $email = $this->requestParams['email'];
+        $password = $this->requestParams['password'];
+        $connection = (new Connection())->getConnection();
+        $user = DBUtils::login($connection, $email, $password);
+        return $this->response($user, 200);
     }
 
     protected function update()
