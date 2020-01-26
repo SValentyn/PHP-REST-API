@@ -3,7 +3,7 @@ function ajax(ajaxObj) {
     xhr.open(ajaxObj.method, ajaxObj.url);
     xhr.onload = () => {
         console.log(`Response status: ${xhr.status}`);
-        console.log(`Response : ${xhr.response}`);
+        console.log(`Response: ${xhr.response}`);
         ajaxObj.success(xhr.response);
     };
 

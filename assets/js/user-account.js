@@ -3,6 +3,7 @@ loadUsers();
 function loadUsers() {
     ajax({
         url: "/api/users",
+        data: null,
         method: "GET",
         success: response => {
             document.querySelector('.table-body').innerHTML = '';
@@ -24,12 +25,13 @@ function loadUsers() {
 function getDataById(userId) {
     id = userId;
     ajax({
-        method: 'GET',
         url: `/api/users/${id}`,
+        data: null,
+        method: 'GET',
         success: (response) => {
-            let user = JSON.parse(response);
-
             console.log(response);
+
+            let user = JSON.parse(response);
             document.getElementById("firstName").value = user.firstName;
             document.getElementById("lastName").value = user.lastName;
             document.getElementById("email").value = user.email;

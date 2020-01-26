@@ -5,6 +5,7 @@ loadUsers();
 function loadUsers() {
     ajax({
         url: "/api/users",
+        data: null,
         method: "GET",
         success: response => {
             document.querySelector('.table-body').innerHTML = '';
@@ -27,12 +28,13 @@ function loadUsers() {
 function getDataById(userId) {
     id = userId;
     ajax({
-        method: 'GET',
         url: `/api/users/${id}`,
+        data: null,
+        method: 'GET',
         success: (response) => {
-            let user = JSON.parse(response);
-
             console.log(response);
+
+            let user = JSON.parse(response);
             document.getElementById("firstName").value = user.firstName;
             document.getElementById("lastName").value = user.lastName;
             document.getElementById("email").value = user.email;
@@ -45,17 +47,20 @@ function getDataById(userId) {
 
 function deleteById(userId) {
     ajax({
-        method: 'DELETE',
         url: `/api/users/${userId}`,
+        data: null,
+        method: 'DELETE',
         success: (response) => {
             console.log(response);
         }
     });
 
     ajax({
-        method: 'GET',
         url: `/api/users/${userId}`,
+        data: null,
+        method: 'GET',
         success: (response) => {
+            console.log(response);
             if (response.status === 404) {
                 window.location.href = "index.php";
             } else {
@@ -67,11 +72,14 @@ function deleteById(userId) {
 
 let change_button = document.getElementById("change-btn");
 change_button.onclick = function () {
+
+    // Getting data
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
+    // Data checking
     document.getElementById("error-label").style.color = "red";
 
     if (firstName === "") {
@@ -96,13 +104,15 @@ change_button.onclick = function () {
         return false;
     }
 
+    // AJAX processing
     ajax({
         method: 'PUT',
+        data: null,
         url: `/api/users/${id}?firstName=${firstName}&lastName=${lastName}&email=${email}&password=${password}`,
         success: (response) => {
-            let user = JSON.parse(response);
-
             console.log(response);
+
+            let user = JSON.parse(response);
             document.getElementById("firstName").value = user.firstName;
             document.getElementById("lastName").value = user.lastName;
             document.getElementById("email").value = user.email;
@@ -111,6 +121,7 @@ change_button.onclick = function () {
             img.src = user.image_path + user.image_name;
         }
     });
+
     document.getElementById("error-label").style.color = "green";
     document.getElementById("error-label").innerHTML = "Data saved!";
     return false;

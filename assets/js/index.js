@@ -3,6 +3,7 @@ loadUsers();
 function loadUsers() {
     ajax({
         url: "/api/users",
+        data: null,
         method: "GET",
         success: response => {
             document.querySelector('.table-body').innerHTML = '';
@@ -23,9 +24,12 @@ function loadUsers() {
 
 let login_btn = document.getElementById("login");
 login_btn.onclick = function () {
+
+    // Getting data
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
+    // Data checking
     let atpos = email.indexOf("@");
     let dotpos = email.lastIndexOf(".");
     if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
@@ -38,11 +42,19 @@ login_btn.onclick = function () {
         return false;
     }
 
+    // AJAX processing
+    let data = new FormData();
+    data.append("email", email);
+    data.append("password", password);
+
     ajax({
-        url: `/api/login?email=${email}&password=${password}`,
-        method: 'GET',
+        url: `/api/login`,
+        data: data,
+        method: 'POST',
         success: (response) => {
             let user = JSON.parse(response);
+            console.log(user);
+
             localStorage.setItem('user', response);
             if (user.role === "admin") {
                 window.location.href = "admin-account.php";
@@ -52,21 +64,21 @@ login_btn.onclick = function () {
                 document.getElementById("error-label").innerHTML = "Your password or email is incorrect!";
                 return false;
             }
-
-            console.log(user);
         }
     });
-
 };
 
 let signup_btn = document.getElementById("signup");
 signup_btn.onclick = function () {
+
+    // Getting data
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
     let email = document.getElementById("email_2").value;
     let password = document.getElementById("password_2").value;
     let option = document.getElementById("optionList").value;
 
+    // Data checking
     if (firstName === "") {
         document.getElementById("error-label_2").innerHTML = "Inaccessible first name";
         return false;
@@ -89,8 +101,17 @@ signup_btn.onclick = function () {
         return false;
     }
 
+    // AJAX processing
+    let data = new FormData();
+    data.append("firstName", firstName);
+    data.append("lastName", lastName);
+    data.append("email", email);
+    data.append("password", password);
+    data.append("role", option);
+
     ajax({
-        url: `/api/users?firstName=${firstName}&lastName=${lastName}&email=${email}&password=${password}&role=${option}`,
+        url: `/api/users`,
+        data: data,
         method: 'POST',
         success: (response) => {
             console.log(JSON.parse(response));
@@ -98,7 +119,8 @@ signup_btn.onclick = function () {
             if (JSON.parse(response) === true) {
                 ajax({
                     url: 'send.php',
-                    type: 'POST',
+                    data: null,
+                    method: 'POST',
                     contentType: false,
                     processData: false,
                     success: function (msg) {
@@ -110,7 +132,7 @@ signup_btn.onclick = function () {
                         }
                     }
                 });
-                alert("Account created!");
+                alert("Account created. Try logging into your account!");
                 window.location.href = "index.php";
             } else {
                 document.getElementById("error-label_2").innerHTML = "Email already exists! Need more unique.";
@@ -120,12 +142,14 @@ signup_btn.onclick = function () {
     });
 };
 
+// Initiate submit by pressing ENTER for form ajaxForm1
 $(document.getElementById("ajaxForm1")).keypress(function (e) {
     if (e.which === 13) {
         document.getElementById("login").click();
     }
 });
 
+// Initiate submit by pressing ENTER for form ajaxForm2
 $(document.getElementById("ajaxForm2")).keypress(function (e) {
     if (e.which === 13) {
         document.getElementById("signup").click();
