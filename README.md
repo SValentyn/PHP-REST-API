@@ -2,7 +2,8 @@
 
  [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)    
- ![Maintenance](https://img.shields.io/badge/MADE%20WITH-PHP-red)
+ ![Madewith](https://img.shields.io/badge/MADE%20WITH-PHP-red)
+ ![php-version](https://img.shields.io/badge/php-%3E%20v5.6.12%20-blue)
    
 The project was developed taking into account all the requirements for the REST architecture.  
 Responses from the API come in JSON format.  
