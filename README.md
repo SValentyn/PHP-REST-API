@@ -7,10 +7,10 @@
    
 ---  
 
-The project was developed taking into account all the requirements for the REST architecture. Responses from the API come in JSON format.    
+The project was developed taking into account all the requirements for the REST architecture.  
+Communication (requests / responses) with the server and API is in JSON format.  
 I deployed the application on the hosting. `Go to this address:` http://php-rest-api.zzz.com.ua/index.php  
 
----  
 ## Project Implementation Requirements
 
 For the correct launch and operation of the site, `you must`:
@@ -21,6 +21,7 @@ For the correct launch and operation of the site, `you must`:
 - add your data for the mail client (send.php file);
 - start the local server and follow the path: http://localhost/index.php (you may need to change the redirection rules in the .htaccess file).
 
+---  
 
 I hope my project will help you! Communication with me: https://t.me/vlnt_snk  
 P.S. Sorry for the banners :)
