@@ -23,5 +23,12 @@ For the correct launch and operation of the site, `you must`:
 
 ---  
 
+## Support
+
+Patches are welcome and can be submitted by forking this project and submitting a pull request via GitHub.  
+Please see [CONTRIBUTING.md](../master/CONTRIBUTING.md) for more details.
+
+---  
+
 I hope my project will help you! Communication with me: https://t.me/vlnt_snk  
 P.S. Sorry for the banners :)
