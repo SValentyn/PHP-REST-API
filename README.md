@@ -21,8 +21,6 @@ For the correct launch and operation of the site, `you must`:
 - add your data for the mail client (send.php file);
 - start the local server and follow the path: http://localhost/index.php (you may need to change the redirection rules in the .htaccess file).
 
----  
-
 ## Support
 
 Patches are welcome and can be submitted by forking this project and submitting a pull request via GitHub.  
