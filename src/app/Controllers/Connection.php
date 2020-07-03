@@ -2,8 +2,8 @@
 
 namespace app\Controllers;
 
-use mysqli;
 use Dotenv\Dotenv;
+use mysqli;
 
 class Connection
 {

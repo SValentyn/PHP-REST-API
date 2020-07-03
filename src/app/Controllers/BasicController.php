@@ -4,9 +4,8 @@ namespace app\Controllers;
 
 abstract class BasicController
 {
-
     public $apiName = '';
-    protected $method = ''; // GET|POST|PUT|DELETE
+    protected $method = ''; // GET || POST || PUT || DELETE
     public $requestParams = [];
     public $requestUri = [];
 
@@ -22,21 +21,29 @@ abstract class BasicController
         $this->requestUri = $params;
         switch ($method) {
             case 'GET':
+            {
                 if ($params) {
                     return 'view';
                 } else {
                     return 'index';
                 }
                 break;
+            }
             case 'POST':
+            {
                 return 'create';
                 break;
+            }
             case 'PUT':
+            {
                 return 'update';
                 break;
+            }
             case 'DELETE':
+            {
                 return 'delete';
                 break;
+            }
             default:
                 return null;
         }
@@ -52,6 +59,7 @@ abstract class BasicController
     {
         $status = array(
             200 => 'OK',
+            400 => 'Invalid Parameters',
             404 => 'Not Found',
             405 => 'Method Not Allowed',
             500 => 'Internal Server Error',

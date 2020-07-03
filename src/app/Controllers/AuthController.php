@@ -19,9 +19,9 @@ class AuthController extends BasicController
     // User login
     public function create()
     {
+        $connection = (new Connection())->getConnection();
         $email = $this->requestParams['email'];
         $password = $this->requestParams['password'];
-        $connection = (new Connection())->getConnection();
         $user = DBUtils::login($connection, $email, $password);
         return $this->response($user, 200);
     }

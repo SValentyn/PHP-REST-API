@@ -3,21 +3,19 @@
 namespace route;
 
 use app\Controllers\AuthController;
-use app\Controllers\UserController;
 use app\Controllers\UploaderController;
-
+use app\Controllers\UserController;
 use RuntimeException;
 
 class Router
 {
-
-    protected $method = ''; //GET|POST|PUT|DELETE
+    protected $method = ''; // GET || POST || PUT || DELETE
     public $requestUri = [];
     public $requestParams = [];
 
     public function __construct()
     {
-        header("Access-Control-Allow-Orgin: *");
+        header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: *");
         header("Content-Type: application/json");
 
@@ -40,7 +38,6 @@ class Router
 
     public function run()
     {
-
         if (array_shift($this->requestUri) !== 'api') {
             throw new RuntimeException('API Not Found', 404);
         }
@@ -49,17 +46,25 @@ class Router
         $request = explode('?', $request)[0];
 
         switch ($request) {
-            case 'users':
-                $controller = new UserController($this->method, $this->requestParams);
-                break;
             case 'login':
+            {
                 $controller = new AuthController($this->method, $this->requestParams);
                 break;
+            }
+            case 'users':
+            {
+                $controller = new UserController($this->method, $this->requestParams);
+                break;
+            }
             case 'upload':
+            {
                 $controller = new UploaderController($this->method, $this->requestParams);
                 break;
+            }
             default:
+            {
                 $controller = new UserController($this->method, $this->requestParams);
+            }
         }
 
         // If the method is defined in an API child class
@@ -69,5 +74,4 @@ class Router
             throw new RuntimeException('Invalid Method', 405);
         }
     }
-
 }

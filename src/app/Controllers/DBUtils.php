@@ -15,15 +15,6 @@ class DBUtils
         $this->properties = $properties;
     }
 
-    // Getting user by id
-    public static function getUserById(mysqli $connection, $userId)
-    {
-        $sql = "SELECT users.`id`, `first_name`, `last_name`, `email`, `password`, `image_path`, `image_name`, `title` 
-                FROM users INNER JOIN roles ON users.role_id = roles.id 
-                WHERE users.id = '$userId';";
-        return self::getUser($connection, $sql);
-    }
-
     // Getting a user by SQL query
     public static function getUser(mysqli $connection, $sql)
     {
@@ -43,6 +34,15 @@ class DBUtils
         }
 
         return $user;
+    }
+
+    // Getting a user by ID
+    public static function getUserById(mysqli $connection, $userId)
+    {
+        $sql = "SELECT users.`id`, `first_name`, `last_name`, `email`, `password`, `image_path`, `image_name`, `title` 
+                FROM users INNER JOIN roles ON users.role_id = roles.id 
+                WHERE users.id = '$userId';";
+        return self::getUser($connection, $sql);
     }
 
     // Getting all users
@@ -70,32 +70,7 @@ class DBUtils
         return $users;
     }
 
-    // User update by id
-    public static function updateById(mysqli $connection, $userId, $firstName, $lastName, $email, $password)
-    {
-        $sql = "UPDATE users SET first_name='$firstName', last_name='$lastName', email='$email', password='$password'
-                WHERE id='$userId';";
-
-        $connection->query($sql);
-        return self::getUserById($connection, $userId);
-    }
-
-    public static function uploadById(mysqli $connection, $userId, $target_dir, $fileName)
-    {
-        $sql = "UPDATE users SET image_path='$target_dir', image_name='$fileName' 
-                WHERE id ='$userId'";
-
-        return $connection->query($sql);
-    }
-
-    // Delete user by id
-    public static function deleteById(mysqli $connection, $userId)
-    {
-        $sql = "DELETE FROM users WHERE id='$userId'";
-        return $connection->query($sql);
-    }
-
-    // Checking login capabilities
+    // Validation of login data
     public static function login(mysqli $connection, $email, $password)
     {
         $sql = "SELECT users.`id`, `first_name`, `last_name`, `email`, `password`, `image_path`, `image_name`, `title` 
@@ -104,7 +79,7 @@ class DBUtils
         return self::getUser($connection, $sql);
     }
 
-    // Register a new user and send mail
+    // Register a new user and send an email
     public function saveNewUser()
     {
         $firstName = $this->properties['firstName'];
@@ -113,11 +88,9 @@ class DBUtils
         $password = $this->properties['password'];
         $roleId = $this->properties['role'] == 'admin' ? 1 : 2;
 
-        // Check your email for uniqueness
-        $sql = "SELECT email FROM users";
-
+        // Email Uniqueness Verification
+        $sql = "SELECT email FROM users;";
         $result = $this->connection->query($sql);
-
         $rows = mysqli_num_rows($result);
         for ($i = 0; $i < $rows; ++$i) {
             $row = mysqli_fetch_row($result);
@@ -128,10 +101,31 @@ class DBUtils
 
         $sql = "INSERT INTO users (first_name, last_name, email, `password`, `image_path`, `image_name`, `role_id`) 
                 VALUES ('$firstName', '$lastName', '$email', '$password', 'public/images/', 'img-01.png', $roleId);";
-
         $result = $this->connection->query($sql);
-
         return $result;
     }
 
+    // Updates user data by id
+    public static function updateById(mysqli $connection, $userId, $firstName, $lastName, $email, $password)
+    {
+        $sql = "UPDATE users SET first_name='$firstName', last_name='$lastName', email='$email', password='$password'
+                WHERE id='$userId';";
+        $connection->query($sql);
+        return self::getUserById($connection, $userId);
+    }
+
+    // Updates user image
+    public static function uploadById(mysqli $connection, $userId, $target_dir, $fileName)
+    {
+        $sql = "UPDATE users SET image_path='$target_dir', image_name='$fileName' 
+                WHERE id ='$userId';";
+        return $connection->query($sql);
+    }
+
+    // Deletes user by id
+    public static function deleteById(mysqli $connection, $userId)
+    {
+        $sql = "DELETE FROM users WHERE id='$userId';";
+        return $connection->query($sql);
+    }
 }

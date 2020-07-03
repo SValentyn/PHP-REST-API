@@ -1,12 +1,9 @@
 <?php
 
-
 namespace app\Controllers;
-
 
 class UploaderController extends BasicController
 {
-
     protected function index()
     {
         $this->response("Action unsupported", 404);
@@ -20,17 +17,15 @@ class UploaderController extends BasicController
     /**
      * Method POST
      * Upload a new user profile picture by id
-     * http://domain/upload
+     * URL: http://domain/upload + [id]
      */
     public function create()
     {
+        $connection = (new Connection())->getConnection();
         $id = $this->requestParams['id'];
-
         $target_dir = "public/images/";
         $fileName = $_FILES['file']['name'];
         $newDataUri = $target_dir . $fileName;
-
-        $connection = (new Connection())->getConnection();
 
         if (DBUtils::uploadById($connection, $id, $target_dir, $fileName)) {
             return $this->response($newDataUri, 200);
