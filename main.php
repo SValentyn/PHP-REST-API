@@ -6,6 +6,6 @@ use route\Router;
 try {
     $api = new Router();
     echo $api->run();
-} catch (Exception $e) {
-    echo json_encode(['error' => $e->getMessage()]);
+} catch (Exception $ex) {
+    echo json_encode(['error' => $ex->getMessage()]);
 }

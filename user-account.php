@@ -1,27 +1,19 @@
 <?php
 session_start();
-
 $_SESSION["role"] = "user";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Project</title>
-    <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
+    <title>User Account</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="shortcut icon" href="assets/images/icons/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/popup.css">
     <link rel="stylesheet" href="assets/css/main-popup.css">
     <link rel="stylesheet" href="assets/css/component-style.css">
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
-    <script type="text/javascript">
-        $(document).keyup(function (e) {
-            if (e.key === "Escape") {
-                window.location.href = "user-account.php#";
-            }
-        });
-    </script>
 </head>
 <body>
 <div class="limiter">
@@ -52,35 +44,36 @@ $_SESSION["role"] = "user";
 
             <a href="#x" class="overlay" id="win1"></a>
             <div class="popup"
-                 style=" width: 450px; height: 400px; top: 100px; padding: 0px; margin-right: 0px; border-radius: 10px;">
+                 style="width: 450px; height: 400px; top: 100px; padding: 0; margin-right: 0; border-radius: 10px;">
                 <div class="wrap-account-info" style="height: 500px;">
                     <div class="login" style="width: 450px;">
-                        <div class="input" style="width: 450px; ">
+                        <div class="input" style="width: 450px;">
                             <center>
                                 <div style="padding-bottom: 20px;">
                                     <img id="img" src="" alt="User avatar" style="width: 210px; height: 200px"/>
                                 </div>
 
                                 <form action="" method="POST">
-                                    <p class="h2" style="margin-top: 20px; padding-left: 38px; margin-bottom: 10px; text-align: left; font-size: 32px;">
-                                        User data:</p>
+                                    <p class="h2"
+                                       style="margin-top: 20px; padding-left: 38px; margin-bottom: 10px; text-align: left; font-size: 32px;">
+                                        User data:
+                                    </p>
 
                                     <div class="blockinput custom-blockinput">
                                         <label for="firstName" class="label-input">First name:</label>
-                                        <input name="firstName" class="custom-input" id="firstName"
-                                               disabled><br>
+                                        <input id="firstName" name="firstName" class="custom-input" disabled/><br>
                                     </div>
 
                                     <div class="blockinput custom-blockinput">
                                         <label for="lastName" class="label-input">Last name:</label>
-                                        <input name="lastName" class="custom-input" id="lastName" disabled
-                                               style="margin-left: 15px;"><br>
+                                        <input id="lastName" name="lastName" class="custom-input" disabled
+                                               style="margin-left: 15px;"/><br>
                                     </div>
 
                                     <div class="blockinput custom-blockinput">
                                         <label for="email" class="label-input">Email:</label>
-                                        <input type="email" class="custom-input" name="email" id="email"
-                                               disabled style="margin-left: 50px;"><br>
+                                        <input id="email" name="email" type="email" class="custom-input"
+                                               disabled style="margin-left: 50px;"/><br>
                                     </div>
                                     <br>
                                 </form>
@@ -90,6 +83,7 @@ $_SESSION["role"] = "user";
                     </div>
                 </div>
             </div>
+
             <div id="footer">
                 <div>
                     <a href="https://github.com/SValentyn/PHP-REST-API">
@@ -101,7 +95,15 @@ $_SESSION["role"] = "user";
         </div>
     </div>
 </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="assets/js/ajax.js"></script>
 <script src="assets/js/user-account.js"></script>
-</body>
+<script type="text/javascript">
+    $(document).keyup(function (e) {
+        if (e.key === "Escape") {
+            window.location.href = "user-account.php#";
+        }
+    });
+</script>
 </html>

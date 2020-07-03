@@ -31,6 +31,6 @@ try {
     if ($mail->send()) {
         echo $msg;
     }
-} catch (Exception $e) {
+} catch (Exception $ex) {
     echo "Send error: {$mail->ErrorInfo}";
 }
