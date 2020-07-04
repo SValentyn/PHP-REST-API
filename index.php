@@ -34,7 +34,8 @@
                                         <label>
                                             <input id="email" name="email" type="email"
                                                    data-validate="Valid email is required: user@gmail.com"
-                                                   placeholder="Email" autocomplete="off"/>
+                                                   placeholder="Email" autocomplete="off"
+                                                   maxlength="255"/>
                                         </label>
                                     </div>
 
@@ -42,9 +43,11 @@
                                         <label>
                                             <input id="password" name="password" type="password"
                                                    data-validate="Password is required"
-                                                   placeholder="Password" autocomplete="off"/>
+                                                   placeholder="Password" autocomplete="off"
+                                                   minlength="6" maxlength="255"/>
                                         </label>
                                     </div>
+
                                     <div class="error-label" id="error-label">&nbsp;</div>
 
                                     <button id="login" type="button" class="button-signup" style="margin-top: 20px;">
@@ -65,29 +68,32 @@
 
                 <!-- Modal Registration Window -->
                 <a style="padding-left: 15px;" href="#win2" class="link">Sign up</a>
-                <a href="#x" class="overlay" id="win2"></a>
+                <a href="#x" class="overlay" id="win2" tabindex="-1"></a>
 
-                <div class="popup" style=" width: 360px; top: 120px; padding: 0; margin-right: 0; border-radius: 10px;">
+                <div class="popup" style=" width: 360px; top: 120px; padding: 0; margin-right: 0; border-radius: 10px;"
+                     tabindex="-1">
                     <div class="wrap-login100" style="width: 342px; height: 510px; padding-left: 40px;">
                         <div class="login">
                             <div class="input">
                                 <form action="" id="ajaxForm2" method="POST">
                                     <h2 class="h2"
-                                        style="padding-bottom: 0; padding-top: 0; margin-top: 40px; margin-bottom: 30px; text-align:center; font-size: 28px;">
+                                        style="padding-bottom: 0; padding-top: 0; margin-top: 40px; margin-bottom: 30px; text-align: center; font-size: 28px;">
                                         Registration form
                                     </h2>
 
                                     <div class="blockinput">
                                         <label>
                                             <input id="firstName" name="firstName" type="text"
-                                                   placeholder="First Name*" autocomplete="off">
+                                                   placeholder="First Name*" autocomplete="off"
+                                                   minlength="1" maxlength="255">
                                         </label>
                                     </div>
 
                                     <div class="blockinput">
                                         <label>
                                             <input id="lastName" name="lastName" type="text"
-                                                   placeholder="Last Name*" autocomplete="off">
+                                                   placeholder="Last Name*" autocomplete="off"
+                                                   minlength="1" maxlength="255">
                                         </label>
                                     </div>
 
@@ -105,20 +111,22 @@
                                     <div class="blockinput">
                                         <label>
                                             <input type="email" name="email_2" id="email_2"
-                                                   placeholder="Email*" autocomplete="off">
+                                                   placeholder="Email*" autocomplete="off"
+                                                   maxlength="255">
                                         </label>
                                     </div>
 
                                     <div class="blockinput">
                                         <label>
                                             <input type="password" name="password_2" id="password_2"
-                                                   placeholder="Password*" autocomplete="off">
+                                                   placeholder="Password*" autocomplete="off"
+                                                   minlength="6" maxlength="255">
                                         </label>
                                     </div>
 
                                     <div id="error-label_2" class="error-label">&nbsp;</div>
 
-                                    <button type="button" class="button-signup" id="signup" style="margin-top: 15px;">
+                                    <button id="signup" type="button" class="button-signup" style="margin-top: 15px;">
                                         Create Account
                                     </button>
                                     <p style="padding-top: 5px; font-size: 16px;">
@@ -164,11 +172,4 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="assets/js/ajax.js"></script>
 <script src="assets/js/index.js"></script>
-<script type="text/javascript">
-    $(document).keyup(function (e) {
-        if (e.key === "Escape") {
-            window.location.href = "index.php#";
-        }
-    });
-</script>
 </html>

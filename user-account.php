@@ -99,11 +99,4 @@ $_SESSION["role"] = "user";
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="assets/js/ajax.js"></script>
 <script src="assets/js/user-account.js"></script>
-<script type="text/javascript">
-    $(document).keyup(function (e) {
-        if (e.key === "Escape") {
-            window.location.href = "user-account.php#";
-        }
-    });
-</script>
 </html>

@@ -1,17 +1,30 @@
-loadUsers();
+let id;
+
+/**
+ * It starts immediately after the page loads
+ */
+window.addEventListener("load", () => {
+    loadUsers();
+});
 
 function loadUsers() {
+
+    // Clear user table
+    document.querySelector('.table-body').innerHTML = '';
+
+    /**
+     * AJAX processing
+     */
     ajax({
         url: "/api/users",
         data: null,
         method: "GET",
         success: response => {
-            document.querySelector('.table-body').innerHTML = '';
             let users = JSON.parse(response);
             users.forEach(user => {
                 document.querySelector('.table-body').innerHTML +=
                     `<tr>
-                        <td><a class="user-id" title="Get user info" href="#win1" onclick="getDataById(${user.id})">${user.id}</a></td>
+                        <td><a class="user-id" title="Get user info" href="#win1" onclick="getUserById(${user.id})">${user.id}</a></td>
                         <td>${user.first_name}</td>
                         <td>${user.last_name}</td>
                         <td>${user.email}</td>
@@ -22,8 +35,12 @@ function loadUsers() {
     })
 }
 
-function getDataById(userId) {
+function getUserById(userId) {
     id = userId;
+
+    /**
+     * AJAX processing
+     */
     ajax({
         url: `/api/users/${id}`,
         data: null,
@@ -41,3 +58,9 @@ function getDataById(userId) {
     });
 }
 
+/**
+ * Initiates closing the modal window using Escape
+ */
+$(document).keyup((e) => {
+    if (e.key === "Escape") window.location.href = "index.php#";
+});

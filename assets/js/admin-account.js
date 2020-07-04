@@ -1,19 +1,34 @@
+/**
+ * Buttons and variables on admin-account.php page
+ */
+let change_button = document.getElementById("change-btn");
 let id;
 
-loadUsers();
+/**
+ * It starts immediately after the page loads
+ */
+window.addEventListener("load", () => {
+    loadUsers();
+});
 
 function loadUsers() {
+
+    // Clear user table
+    document.querySelector('.table-body').innerHTML = '';
+
+    /**
+     * AJAX processing
+     */
     ajax({
         url: "/api/users",
         data: null,
         method: "GET",
         success: response => {
-            document.querySelector('.table-body').innerHTML = '';
             let users = JSON.parse(response);
             users.forEach(user => {
                 document.querySelector('.table-body').innerHTML +=
                     `<tr>
-                        <td><a class="user-id" title="Get user info" href="#win1" onclick="getDataById(${user.id})">${user.id}</a></td>
+                        <td><a class="user-id" title="Get user info" href="#win1" onclick="getUserById(${user.id})">${user.id}</a></td>
                         <td>${user.first_name}</td>
                         <td>${user.last_name}</td>
                         <td>${user.email}</td>
@@ -25,8 +40,12 @@ function loadUsers() {
     })
 }
 
-function getDataById(userId) {
+function getUserById(userId) {
     id = userId;
+
+    /**
+     * AJAX processing
+     */
     ajax({
         url: `/api/users/${id}`,
         data: null,
@@ -46,6 +65,10 @@ function getDataById(userId) {
 }
 
 function deleteById(userId) {
+
+    /**
+     * AJAX processing
+     */
     ajax({
         url: `/api/users/${userId}`,
         data: null,
@@ -55,6 +78,10 @@ function deleteById(userId) {
         }
     });
 
+    /**
+     * AJAX processing
+     * Handling the case of deleting own account from the system
+     */
     ajax({
         url: `/api/users/${userId}`,
         data: null,
@@ -70,41 +97,59 @@ function deleteById(userId) {
     });
 }
 
-let change_button = document.getElementById("change-btn");
-change_button.onclick = function () {
+/**
+ * Pressing the change-button initiates validation of the form data and sends data to the server through AJAX
+ */
+change_button.onclick = () => {
 
-    // Getting data
+    // Setting the initial label style
+    document.getElementById("error-label").style.color = "red";
+
+    /**
+     * Retrieving form data
+     */
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
-    // Data checking
-    document.getElementById("error-label").style.color = "red";
-
-    if (firstName === "") {
+    /**
+     * Name validation
+     */
+    if (firstName.trim() === "") {
         document.getElementById("error-label").innerHTML = "Inaccessible first name";
         return false;
     }
 
-    if (lastName === "") {
+    /**
+     * Surname validation
+     */
+    if (lastName.trim() === "") {
         document.getElementById("error-label").innerHTML = "Inaccessible last name";
         return false;
     }
 
+    /**
+     * Email validation
+     */
     let atpos = email.indexOf("@");
     let dotpos = email.lastIndexOf(".");
-    if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
+    if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.trim().length) {
         document.getElementById("error-label").innerHTML = "Invalid email address";
         return false;
     }
 
-    if (password === "" || password.length < 6) {
+    /**
+     * Password validation
+     */
+    if (password.trim() === "" || password.length < 6) {
         document.getElementById("error-label").innerHTML = "Password is too short";
         return false;
     }
 
-    // AJAX processing
+    /**
+     * AJAX processing
+     */
     ajax({
         method: 'PUT',
         data: null,
@@ -126,3 +171,7 @@ change_button.onclick = function () {
     document.getElementById("error-label").innerHTML = "Data saved!";
     return false;
 };
+
+$(document).keyup((e) => {
+    if (e.key === 27) window.location.href = "admin-account.php#";
+});

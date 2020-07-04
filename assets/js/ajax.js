@@ -10,5 +10,3 @@ function ajax(ajaxObj) {
     console.log(`data: ${ajaxObj.data}`);
     xhr.send(ajaxObj.data);
 }
-
-
