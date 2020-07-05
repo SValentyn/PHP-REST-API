@@ -1,5 +1,6 @@
 Options +FollowSymLinks
 IndexIgnore */* #Options -Indexes
+RewriteBase /
 
 # Redirect from DOMAIN to DOMAIN/api
 RewriteEngine On

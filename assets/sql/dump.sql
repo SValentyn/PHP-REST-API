@@ -30,7 +30,7 @@ CREATE TABLE `roles`
   CHARACTER SET utf8
   DEFAULT COLLATE 'utf8_general_ci';
 
-INSERT INTO roles (title)
+INSERT INTO roles (`title`)
 VALUES ('admin'),
        ('user');
 -- -- --
@@ -51,8 +51,8 @@ CREATE TABLE `users`
   CHARACTER SET utf8
   DEFAULT COLLATE 'utf8_general_ci';
 
-INSERT INTO users (first_name, last_name, email, password, role_id, image_path, image_name)
+INSERT INTO users (`first_name`, `last_name`, `email`, `password`, `role_id`, `image_path`, `image_name`)
 VALUES ('Cristoforo', 'Colombo', 'Cristoforo-Colombo@gmail.com', '111111', 1, 'public/images/', 'img-01.png'),
        ('Fernando', 'de Magallanes', 'Fernando-de-Magallanes@outlook.com', '000000', 2, 'public/images/', 'img-01.png'),
        ('James', 'Cook', 'James-Cook@gmail.com', '000000', 2, 'public/images/', 'img-01.png'),
-       ('Vasco', 'user1', 'Vasco-da-Gama@gmail.com', '000000', 2, 'public/images/', 'img-01.png');
+       ('Vasco', 'da Gama', 'Vasco-da-Gama@gmail.com', '000000', 2, 'public/images/', 'img-01.png');
