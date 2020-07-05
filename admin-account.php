@@ -10,10 +10,7 @@ $_SESSION["role"] = "admin";
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="shortcut icon" href="assets/images/icons/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/popup.css">
-    <link rel="stylesheet" href="assets/css/main-popup.css">
-    <link rel="stylesheet" href="assets/css/component-style.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 <div class="limiter">
@@ -31,12 +28,12 @@ $_SESSION["role"] = "admin";
             <table id="table-body">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Role</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col" class="th-functional">Info</th>
+                    <th scope="col" class="th-functional">Delete</th>
                 </tr>
                 </thead>
                 <tbody id="table-users" class="table-body">
@@ -44,13 +41,15 @@ $_SESSION["role"] = "admin";
             </table>
 
             <a href="#x" class="overlay" id="win1"></a>
-            <div class="popup" style="width: 450px; top: 80px; padding: 0; margin-right: 0; border-radius: 10px;">
+            <div class="popup"
+                 style="width: 450px; height: 630px; top: 50px; padding: 0; margin-right: 0; border-radius: 10px;">
                 <div class="wrap-account-info">
-                    <div class="login" style="width: 450px;">
-                        <div class="input" style="width: 450px;">
-                            <center>
-                                <div style="padding-bottom: 10px;">
-                                    <img id="img" src="" alt="User avatar"/>
+                    <div class="login" style="width: 450px; height: 630px;">
+                        <div class="modal-window" style="width: 450px; height: 630px;">
+                            <div style="text-align: center;">
+                                <div style="height: 150px; margin: 20px 0 22px 0;">
+                                    <img id="img" src="" alt="User avatar"
+                                         style="width: 165px; height: 150px;"/>
                                 </div>
                                 <div id="upload-choose-container">
                                     <input type="file" id="upload-file" accept="image/jpeg, image/png"/>
@@ -61,48 +60,49 @@ $_SESSION["role"] = "admin";
                                     <button id="upload-button">Upload</button>
                                     <button id="cancel-button">Cancel</button>
                                 </div>
-                                <div id="error-message"></div>
+
+                                <div class="error-label" id="error-message">&nbsp;</div>
+
                                 <script src="assets/js/upload.js"></script>
 
                                 <form action="" method="POST">
-                                    <p class="h2"
-                                       style="margin-top: 20px; padding-left: 38px; margin-bottom: 10px; text-align: left; font-size: 25px;">
+                                    <h2 style="padding: 15px 20px 5px 40px; text-align: left; font-size: 25px;">
                                         User data:
-                                    </p>
+                                    </h2>
 
                                     <div class="blockinput custom-blockinput">
                                         <label for="firstName" class="label-input">First name:</label>
                                         <input id="firstName" name="firstName" class="custom-input"
-                                               autocomplete="off"/><br>
+                                               autocomplete="off" minlength="1" maxlength="255"/><br>
                                     </div>
 
                                     <div class="blockinput custom-blockinput">
                                         <label for="lastName" class="label-input">Last name:</label>
                                         <input id="lastName" name="lastName" class="custom-input"
-                                               autocomplete="off" style="margin-left: 15px;"/><br>
+                                               autocomplete="off" minlength="1" maxlength="255"/><br>
                                     </div>
 
                                     <div class="blockinput custom-blockinput">
                                         <label for="email" class="label-input">Email:</label>
                                         <input id="email" name="email" type="email" class="custom-input"
-                                               autocomplete="off" style="margin-left: 50px;"/><br>
+                                               autocomplete="off" minlength="1" maxlength="255"/><br>
                                     </div>
 
                                     <div class="blockinput custom-blockinput">
                                         <label for="password" class="label-input">Password:</label>
                                         <input id="password" name="password" class="custom-input"
-                                               autocomplete="off" style="margin-left: 20px;"/><br>
+                                               autocomplete="off" minlength="6" maxlength="255"/><br>
                                     </div>
 
                                     <div id="error-label" class="error-label" style="margin-left: 35px;">&nbsp;</div>
 
-                                    <button id="change-btn" type="submit"
-                                            class="button-signup" style="width: 360px; margin-top: 14px;">
+                                    <button id="change-btn" type="submit" class="button-signup"
+                                            style="width: 70%; margin-top: 18px;">
                                         Change data
                                     </button>
                                 </form>
                                 <a href="#x" class="close" id="close" style="left: 435px;" title="Close"></a>
-                            </center>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,8 +111,8 @@ $_SESSION["role"] = "admin";
             <div id="footer">
                 <div>
                     <a href="https://github.com/SValentyn/PHP-REST-API">
-                        <img id="github-ico" src="assets/images/icons/GitHub-Mark-32px.ico" title="View code on GitHub"
-                             alt="View code on GitHub"/>
+                        <img id="github-ico" src="assets/images/icons/GitHub-Mark-32px.ico"
+                             title="View project code on GitHub" alt="View code on GitHub"/>
                     </a>
                 </div>
             </div>
