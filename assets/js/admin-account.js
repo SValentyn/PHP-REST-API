@@ -11,10 +11,13 @@ window.addEventListener("load", () => {
     loadUsers();
 });
 
-function loadUsers() {
+/**
+ * This starts every 10 seconds to display the latest data
+ */
+setInterval(loadUsers, 10000);
 
-    // Clear user table
-    document.querySelector('.table-body').innerHTML = '';
+function loadUsers() {
+    let tmpUsers;
 
     /**
      * AJAX processing
@@ -23,20 +26,44 @@ function loadUsers() {
         url: "/api/users",
         data: null,
         method: "GET",
-        success: response => {
+        success: (response, status) => {
+            if (status === 404) {
+                window.location.href = "index.php#";
+            }
+
             let users = JSON.parse(response);
-            users.forEach(user => {
-                document.querySelector('.table-body').innerHTML +=
-                    `<tr>
-                        <td><a class="user-id" title="Get user info" href="#win1" onclick="getUserById(${user.id})">${user.id}</a></td>
-                        <td>${user.first_name}</td>
-                        <td>${user.last_name}</td>
-                        <td>${user.email}</td>
-                        <td>${user.role}</td>
-                        <td><a class="delete-button" title="Delete user" onclick="deleteById(${user.id})">X</a></td>
-                    </tr>`;
-            })
+
+            if (tmpUsers == null || tmpUsers !== users) {
+                tmpUsers = users;
+                fillTable(users);
+            }
         }
+    })
+}
+
+function fillTable(users) {
+
+    // Clear user table
+    document.querySelector('.table-body').innerHTML = '';
+
+    users.forEach((user) => {
+        document.querySelector('.table-body').innerHTML +=
+            `<tr>
+                <td>${user.first_name}</td>
+                <td>${user.last_name}</td>
+                <td>${user.email}</td>
+                <td>${user.role}</td>
+                <td>
+                    <a href="#win1" class="info-user" onclick="getUserById(${user.id})" title="Get user info">
+                        <img src="assets/images/icons/info.png" alt="Info" class="info-img"/>
+                    </a>
+                </td>
+                <td>
+                    <a class="delete-button" title="Delete user" onclick="deleteUserById(${user.id})">
+                       &#10060;
+                    </a>
+                </td>
+            </tr>`;
     })
 }
 
@@ -50,7 +77,7 @@ function getUserById(userId) {
         url: `/api/users/${id}`,
         data: null,
         method: 'GET',
-        success: (response) => {
+        success: (response, status) => {
             console.log(response);
 
             let user = JSON.parse(response);
@@ -64,7 +91,7 @@ function getUserById(userId) {
     });
 }
 
-function deleteById(userId) {
+function deleteUserById(userId) {
 
     /**
      * AJAX processing
@@ -73,25 +100,17 @@ function deleteById(userId) {
         url: `/api/users/${userId}`,
         data: null,
         method: 'DELETE',
-        success: (response) => {
+        success: (response, status) => {
             console.log(response);
-        }
-    });
 
-    /**
-     * AJAX processing
-     * Handling the case of deleting own account from the system
-     */
-    ajax({
-        url: `/api/users/${userId}`,
-        data: null,
-        method: 'GET',
-        success: (response) => {
-            console.log(response);
-            if (response.status === 404) {
-                window.location.href = "index.php";
+            /**
+             * Handling the case of deleting own account from the system
+             */
+            let user = JSON.parse(localStorage.getItem('user'));
+            if (user.id == userId) {
+                window.location.href = "index.php#";
             } else {
-                window.location.href = "admin-account.php";
+                loadUsers();
             }
         }
     });
@@ -117,7 +136,7 @@ change_button.onclick = () => {
      * Name validation
      */
     if (firstName.trim() === "") {
-        document.getElementById("error-label").innerHTML = "Inaccessible first name";
+        document.getElementById("error-label").innerHTML = "Inaccessible first name!";
         return false;
     }
 
@@ -125,7 +144,7 @@ change_button.onclick = () => {
      * Surname validation
      */
     if (lastName.trim() === "") {
-        document.getElementById("error-label").innerHTML = "Inaccessible last name";
+        document.getElementById("error-label").innerHTML = "Inaccessible last name!";
         return false;
     }
 
@@ -135,7 +154,7 @@ change_button.onclick = () => {
     let atpos = email.indexOf("@");
     let dotpos = email.lastIndexOf(".");
     if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.trim().length) {
-        document.getElementById("error-label").innerHTML = "Invalid email address";
+        document.getElementById("error-label").innerHTML = "Invalid email address!";
         return false;
     }
 
@@ -143,7 +162,7 @@ change_button.onclick = () => {
      * Password validation
      */
     if (password.trim() === "" || password.length < 6) {
-        document.getElementById("error-label").innerHTML = "Password is too short";
+        document.getElementById("error-label").innerHTML = "Password is too short!";
         return false;
     }
 
@@ -154,7 +173,7 @@ change_button.onclick = () => {
         method: 'PUT',
         data: null,
         url: `/api/users/${id}?firstName=${firstName}&lastName=${lastName}&email=${email}&password=${password}`,
-        success: (response) => {
+        success: (response, status) => {
             console.log(response);
 
             let user = JSON.parse(response);
@@ -164,14 +183,27 @@ change_button.onclick = () => {
             document.getElementById("password").value = user.password;
             let img = document.getElementById("img");
             img.src = user.image_path + user.image_name;
+
+            loadUsers();
         }
     });
 
     document.getElementById("error-label").style.color = "green";
     document.getElementById("error-label").innerHTML = "Data saved!";
+
+    /**
+     * Hide action notification
+     */
+    setTimeout(() => {
+        document.getElementById("error-label").innerHTML = '&nbsp;';
+    }, 3200);
+
     return false;
 };
 
+/**
+ * Initiates closing the modal window using Escape
+ */
 $(document).keyup((e) => {
-    if (e.key === 27) window.location.href = "admin-account.php#";
+    if (e.key === "Escape") window.location.href = "admin-account.php#";
 });

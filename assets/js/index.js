@@ -11,10 +11,13 @@ window.addEventListener("load", () => {
     loadUsers();
 });
 
-function loadUsers() {
+/**
+ * This starts every 10 seconds to display the latest data
+ */
+setInterval(loadUsers, 10000);
 
-    // Clear user table
-    document.querySelector('.table-body').innerHTML = '';
+function loadUsers() {
+    let tmpUsers;
 
     /**
      * AJAX processing
@@ -23,20 +26,35 @@ function loadUsers() {
         url: "/api/users",
         data: null,
         method: "GET",
-        success: response => {
+        success: (response, status) => {
+            if (status === 404) {
+                window.location.href = "index.php#";
+            }
+
             let users = JSON.parse(response);
-            users.forEach(user => {
-                document.querySelector('.table-body').innerHTML +=
-                    `<tr>
-                        <td class="user-id">${user.id}</td>
-                        <td>${user.first_name}</td>
-                        <td>${user.last_name}</td>
-                        <td>${user.email}</td>
-                        <td>${user.role}</td>
-                    </tr>`;
-            })
+
+            if (tmpUsers == null || tmpUsers !== users) {
+                tmpUsers = users;
+                fillTable(users);
+            }
         }
     })
+}
+
+function fillTable(users) {
+
+    // Clear user table
+    document.querySelector('.table-body').innerHTML = '';
+
+    users.forEach((user) => {
+        document.querySelector('.table-body').innerHTML +=
+            `<tr>
+                <td>${user.first_name}</td>
+                <td>${user.last_name}</td>
+                <td>${user.email}</td>
+                <td>${user.role}</td>
+            </tr>`;
+    });
 }
 
 /**
@@ -82,11 +100,12 @@ login_btn.onclick = () => {
         url: `/api/login`,
         data: data,
         method: 'POST',
-        success: (response) => {
+        success: (response, status) => {
+            localStorage.setItem('user', response);
+
             let user = JSON.parse(response);
             console.log(user);
 
-            localStorage.setItem('user', response);
             if (user.role === "admin") {
                 window.location.href = "admin-account.php";
             } else if (user.role === "user") {
@@ -164,7 +183,7 @@ signup_btn.onclick = () => {
         url: `/api/users`,
         data: data,
         method: 'POST',
-        success: (response) => {
+        success: (response, status) => {
             console.log(JSON.parse(response));
 
             if (JSON.parse(response) === true) {
@@ -178,9 +197,9 @@ signup_btn.onclick = () => {
                     method: 'POST',
                     contentType: false,
                     processData: false,
-                    success: function (msg) {
-                        console.log(msg);
-                        if (msg === 'ok') {
+                    success: (response, status) => {
+                        console.log(response);
+                        if (response === 'ok') {
                             console.log('Email has been sent!');
                         } else {
                             console.log('Error sending email..');
@@ -197,6 +216,18 @@ signup_btn.onclick = () => {
         }
     });
 };
+
+/**
+ * The function allows you to increase the indent between letters when entering characters (now used to enter a password)
+ * @param element (tag)
+ */
+function letter_spacing(element) {
+    if (element.value.length > 0) {
+        element.style.letterSpacing = "2.5px";
+    } else {
+        element.style.letterSpacing = "0px";
+    }
+}
 
 /**
  * Initiate submitting by pressing ENTER for form ajaxForm1

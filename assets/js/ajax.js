@@ -4,7 +4,7 @@ function ajax(ajaxObj) {
     xhr.onload = () => {
         console.log(`Response status: ${xhr.status}`);
         console.log(`Response: ${xhr.response}`);
-        ajaxObj.success(xhr.response);
+        ajaxObj.success(xhr.response, xhr.status);
     };
 
     console.log(`data: ${ajaxObj.data}`);
