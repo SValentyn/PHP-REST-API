@@ -9,23 +9,45 @@ document.querySelector('#choose-upload-button').addEventListener('click', () => 
  * When a new file is selected
  */
 document.querySelector('#upload-file').addEventListener('change', function () {
-    document.querySelector('#error-message').style.display = 'none';
+    document.querySelector('#error-message').innerHTML = '&nbsp;';
 
     let file = this.files[0];
     let mime_types = ['image/jpeg', 'image/png'];
 
     // MIME type validation
     if (mime_types.indexOf(file.type) === -1) {
-        document.querySelector('#error-message').style.display = 'block';
-        document.querySelector('#error-message').innerText = 'Error: Only JPEG and PNG files allowed';
-        return;
+        document.querySelector('#error-message').innerText = 'Error: Only JPEG and PNG files allowed!';
+
+        // Hide action notification
+        setTimeout(() => {
+            document.querySelector('#error-message').innerHTML = '&nbsp;';
+        }, 3500);
+
+        return false;
     }
 
-    // Max 2 Mb allowed
+    // File name validation (English letters only)
+    // if (file.name.trim().search(/^[a-zA-Z0-9._-]+$/) === -1) {
+    //     document.querySelector('#error-message').innerText = 'Error: Inaccessible file name!';
+    //
+    //     // Hide action notification
+    //     setTimeout(() => {
+    //         document.querySelector('#error-message').innerHTML = '&nbsp;';
+    //     }, 3500);
+    //
+    //     return false;
+    // }
+
+    // File size validation
     if (file.size > 2 * 1024 * 1024) {
-        document.querySelector('#error-message').style.display = 'block';
         document.querySelector('#error-message').innerText = 'Error: Exceeded size 2MB';
-        return;
+
+        // Hide action notification
+        setTimeout(() => {
+            document.querySelector('#error-message').innerHTML = '&nbsp;';
+        }, 3500);
+
+        return false;
     }
 
     document.querySelector('#upload-choose-container').style.display = 'none';
@@ -37,7 +59,6 @@ document.querySelector('#upload-file').addEventListener('change', function () {
  * Cancel button event
  */
 document.querySelector('#cancel-button').addEventListener('click', () => {
-    document.querySelector('#error-message').style.display = 'none';
     document.querySelector('#upload-choose-container').style.display = 'block';
     document.querySelector('#upload-file-final-container').style.display = 'none';
     document.querySelector('#upload-file').setAttribute('value', '');
@@ -62,10 +83,9 @@ document.querySelector('#upload-button').addEventListener('click', () => {
         url: `/api/upload`,
         data: data,
         method: 'POST',
-        success: (response) => {
-            console.log(JSON.parse(response));
-
+        success: (response, status) => {
             document.querySelector('#cancel-button').click();
+            console.log(JSON.parse(response));
             let img = document.getElementById("img");
             img.src = JSON.parse(response);
         }

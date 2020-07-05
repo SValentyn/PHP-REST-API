@@ -27,8 +27,12 @@ class UploaderController extends BasicController
         $fileName = $_FILES['file']['name'];
         $newDataUri = $target_dir . $fileName;
 
-        if (DBUtils::uploadById($connection, $id, $target_dir, $fileName)) {
-            return $this->response($newDataUri, 200);
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $newDataUri)) {
+            if (DBUtils::uploadById($connection, $id, $target_dir, $fileName)) {
+                return $this->response($newDataUri, 200);
+            } else {
+                return $this->response("Image cannot be updated..", 500);
+            }
         } else {
             return $this->response("Image cannot be updated..", 500);
         }
