@@ -25,7 +25,7 @@ $_SESSION["role"] = "admin";
             ?>
 
             <!-- Calling the user table builder -->
-            <table id="table-body">
+            <table class="slideExpandUp">
                 <thead>
                 <tr>
                     <th scope="col">First Name</th>
@@ -36,7 +36,7 @@ $_SESSION["role"] = "admin";
                     <th scope="col" class="th-functional">Delete</th>
                 </tr>
                 </thead>
-                <tbody id="table-users" class="table-body">
+                <tbody class="table-body">
                 </tbody>
             </table>
 

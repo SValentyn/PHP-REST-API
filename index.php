@@ -10,13 +10,19 @@
 <body>
 <div class="limiter">
     <div class="container-login100">
-        <div style="height: 600px; text-align: center;">
-            <h3>Start Page</h3>
+        <div style="text-align: center;">
+
+            <h3>
+                <object type="image/svg+xml" data="assets/images/icons/stars-left.svg" class="icon"></object>
+                Start Page
+                <object type="image/svg+xml" data="assets/images/icons/stars-right.svg" class="icon"></object>
+            </h3>
+
             <div style="text-align: center;">
 
                 <!-- Modal Login Window -->
                 <a href="#win1" class="link" style="padding-right: 15px;">Login</a>
-                <a href="#x" class="overlay" id="win1"></a>
+                <a href="#x" class="overlay" id="win1" tabindex="-1"></a>
 
                 <div class="popup" style="width: 360px; top: 180px; padding: 0; margin-right: 0; border-radius: 10px;">
                     <div class="wrap-login100" style="width: 342px; padding-left: 40px;">
@@ -141,7 +147,7 @@
                     </div>
                 </div>
 
-                <table style="width: 950px; margin-top: 60px; margin-bottom: 15px;">
+                <table class="slideExpandUp" style="width: 950px; margin-top: 60px; margin-bottom: 15px;">
                     <thead>
                     <tr>
                         <th scope="col">First Name</th>

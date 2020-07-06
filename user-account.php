@@ -25,7 +25,7 @@ $_SESSION["role"] = "user";
             ?>
 
             <!-- Calling the user table builder -->
-            <table id="table-body">
+            <table class="slideExpandUp">
                 <thead>
                 <tr>
                     <th scope="col">First Name</th>

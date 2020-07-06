@@ -74,6 +74,7 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: baseline;
     align-items: center;
     padding: 15px;
     background: -webkit-linear-gradient(180deg, #111111, #1d2e83);
@@ -136,7 +137,7 @@ h2 {
 h3 {
     margin: 0 0 15px 0;
     text-align: center;
-    font-size: 81px;
+    font-size: 75px;
     font-weight: lighter;
     color: white;
 }
@@ -272,6 +273,28 @@ tbody {
     height: 19px;
     display: block;
     text-decoration: none;
+}
+
+.slideExpandUp {
+    visibility: visible !important;
+    animation-name: slideExpandUp;
+    -webkit-animation-name: slideExpandUp;
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+}
+
+@keyframes slideExpandUp {
+    0% {
+        transform: translateY(10%) scaleX(0.90);
+    }
+}
+
+@-webkit-keyframes slideExpandUp {
+    0% {
+        transform: translateY(10%) scaleX(0.90);
+    }
 }
 
 /*** Inputs ***/
@@ -501,6 +524,30 @@ img {
     opacity: 1.0;
     margin: 0;
     border-radius: unset;
+}
+
+object[class="icon"] {
+    filter: invert(95%);
+    margin: 0 25px 0 25px;
+    display: inline-block;
+    animation-name: pulsing;
+    animation-duration: 4.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes pulsing {
+    0% {
+        transform: scale(0.90);
+    }
+
+    50% {
+        transform: scale(0.75);
+    }
+
+    100% {
+        transform: rotate(-360deg) scale(0.90);
+    }
 }
 
 /*** Footer ***/
